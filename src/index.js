@@ -9,7 +9,10 @@ const app = express()
 app.use(express.json())
 
 app.use("/api",routerP)
-app.use("/api",routerU)
+app.use("/api/users",routerU)
 
-app.listen(3000)
-console.log("Server en port 3000")
+
+const PORT = process.env.PORT || 3001; // Cambia 3000 por 3001
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en ${PORT}`);
+});
