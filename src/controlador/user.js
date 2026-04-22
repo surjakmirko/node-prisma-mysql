@@ -1,7 +1,9 @@
-import { prisma } from "../db/index.js";
+const { PrismaClient } = require('@prisma/client')
+
+const prisma = new PrismaClient()
 
 async function findAll(req,res) {
-    const usuarios = await prisma.user.findMany()
+    const usuarios = await prisma.user
     return res.status(200).json(usuarios)
     
 }
